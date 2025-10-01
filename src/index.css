@@ -1,10 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Sans+TC:wght@100..900&display=swap");
 @import "tailwindcss";
 
-/* 引入方正准圆简体字体 */
+/* 引入圆体字体 */
 @font-face {
-  font-family: "FangZheng ZhunYuan";
-  src: url("https://img.shashin.cc/font/FZY3JW.ttf") format("truetype");
+  font-family: "Yuanti";
+  src: url("https://img.shashin.cc/font/HYZhengYuan-55W.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
   font-display: swap; /* 優化字體載入性能 */
@@ -26,7 +27,7 @@ code {
 
 /* 自定義字體類別 */
 .font-chinese {
-  font-family: "FangZheng ZhunYuan", "Noto Sans TC", sans-serif;
+  font-family: "Yuanti", "Noto Sans TC", sans-serif;
 }
 
 .font-english {
@@ -37,7 +38,7 @@ code {
   font-family: "Noto Sans JP", sans-serif;
 }
 
-/* 專用於方正准圆的類別 */
-.font-fangzheng {
-  font-family: "FangZheng ZhunYuan", sans-serif;
+/* 專用於圓體的類別 */
+.font-Yuanti {
+  font-family: "Yuanti", sans-serif;
 }
