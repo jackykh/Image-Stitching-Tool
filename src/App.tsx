@@ -16,7 +16,6 @@ function App() {
   const [images, setImages] = useState<ImageItem[]>([]);
   const [previewUrl, setPreviewUrl] = useState<string>("");
   const [isGenerating, setIsGenerating] = useState(false);
-  const [showCopyModal, setShowCopyModal] = useState(false); // 新增：控制复制模态框显示
   const fileInputRef = useRef<HTMLInputElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const fabricCanvasRef = useRef<fabric.Canvas | null>(null);
@@ -61,7 +60,6 @@ function App() {
     };
 
     setImages((prev) => [...prev, copiedImage]);
-    setShowCopyModal(false);
     setPreviewUrl(""); // 清除预览，需要重新生成
   };
 
@@ -90,15 +88,6 @@ function App() {
 
   const addImageClick = () => {
     fileInputRef.current?.click();
-  };
-
-  // 新增：显示复制模态框
-  const showCopyImageModal = () => {
-    if (images.length === 0) {
-      alert("请先上传至少一张图片");
-      return;
-    }
-    setShowCopyModal(true);
   };
 
   const loadFabricImage = (src: string): Promise<fabric.FabricImage> => {
@@ -344,13 +333,6 @@ function App() {
                 >
                   点击选择图片 / Click to select images
                 </button>
-
-                <button
-                  onClick={showCopyImageModal}
-                  className="w-full py-3 px-4 bg-blue-50 border-2 border-blue-200 rounded-lg text-blue-700 hover:bg-blue-100 hover:border-blue-300 transition-colors cursor-pointer"
-                >
-                  复制已有图片 / Copy existing image
-                </button>
               </div>
 
               <input
@@ -382,12 +364,20 @@ function App() {
                       <span className="text-blue-600 text-sm ml-2">(复制)</span>
                     )}
                   </h3>
-                  <button
-                    onClick={() => removeImage(image.id)}
-                    className="text-red-500 hover:text-red-700 text-sm cursor-pointer"
-                  >
-                    移除
-                  </button>
+                  <div className="flex space-x-2">
+                    <button
+                      onClick={() => copyImage(image)}
+                      className="text-base cursor-pointer border border-green-500 text-green-500 px-4 py-1 rounded hover:bg-green-500 hover:text-white transition-colors"
+                    >
+                      复制
+                    </button>
+                    <button
+                      onClick={() => removeImage(image.id)}
+                      className="text-base cursor-pointer border border-red-500 text-red-500 px-4 py-1 rounded hover:bg-red-500 hover:text-white transition-colors"
+                    >
+                      移除
+                    </button>
+                  </div>
                 </div>
 
                 <div className="mb-4">
@@ -488,50 +478,6 @@ function App() {
         </div>
 
         <canvas ref={canvasRef} className="hidden" />
-
-        {/* 新增：复制图片模态框 */}
-        {showCopyModal && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-            <div className="bg-white rounded-lg p-6 w-full max-w-2xl max-h-96 overflow-y-auto mx-4">
-              <h3 className="text-lg font-semibold mb-4">选择要复制的图片</h3>
-
-              <div className="grid grid-cols-2 gap-4 mb-4">
-                {images.map((image, index) => (
-                  <div
-                    key={image.id}
-                    onClick={() => copyImage(image)}
-                    className="border-2 border-gray-200 rounded-lg p-3 hover:border-blue-400 cursor-pointer transition-colors"
-                  >
-                    <img
-                      src={image.url}
-                      alt={`Image ${index + 1}`}
-                      className="w-full h-24 object-cover rounded mb-2"
-                    />
-                    <p className="text-sm text-gray-600 text-center">
-                      图片 {index + 1}
-                      {image.originalId && (
-                        <span className="text-blue-600"> (复制)</span>
-                      )}
-                    </p>
-                    {(image.caption.zh || image.caption.jp) && (
-                      <div className="text-xs text-gray-500 mt-1">
-                        {image.caption.zh && <div>中: {image.caption.zh}</div>}
-                        {image.caption.jp && <div>日: {image.caption.jp}</div>}
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-
-              <button
-                onClick={() => setShowCopyModal(false)}
-                className="w-full py-2 px-4 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 transition-colors cursor-pointer"
-              >
-                取消
-              </button>
-            </div>
-          </div>
-        )}
       </div>
     </div>
   );
