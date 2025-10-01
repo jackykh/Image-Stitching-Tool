@@ -42,3 +42,11 @@ code {
 .font-Yuanti {
   font-family: "Yuanti", sans-serif;
 }
+
+/* Footer styling */
+.footer {
+  text-align: center;
+  padding: 10px;
+  font-size: 14px;
+  color: #555;
+}
