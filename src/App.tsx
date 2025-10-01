@@ -410,7 +410,7 @@ function App() {
                         updateCaption(image.id, "zh", e.target.value)
                       }
                       placeholder="输入中文字幕..."
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-text"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-text font-chinese"
                     />
                   </div>
 
@@ -425,7 +425,7 @@ function App() {
                         updateCaption(image.id, "jp", e.target.value)
                       }
                       placeholder="日本語字幕を入力..."
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-text"
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-text font-japanese"
                     />
                   </div>
                 </div>
