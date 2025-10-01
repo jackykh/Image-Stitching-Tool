@@ -50,3 +50,7 @@ code {
   font-size: 14px;
   color: #555;
 }
+
+.canvas-container {
+  display: none !important;
+}
