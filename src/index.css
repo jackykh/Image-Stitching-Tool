@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap");
+@import "tailwindcss";
+
+/* 引入方正准圆简体字体 */
+@font-face {
+  font-family: "FangZheng ZhunYuan";
+  src: url("https://img.shashin.cc/font/FZY3JW.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* 優化字體載入性能 */
+}
+
+body {
+  margin: 0;
+  font-family: "Noto Sans TC", "Inter", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+/* 自定義字體類別 */
+.font-chinese {
+  font-family: "FangZheng ZhunYuan", "Noto Sans TC", sans-serif;
+}
+
+.font-english {
+  font-family: "Inter", sans-serif;
+}
+
+.font-japanese {
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+/* 專用於方正准圆的類別 */
+.font-fangzheng {
+  font-family: "FangZheng ZhunYuan", sans-serif;
+}
