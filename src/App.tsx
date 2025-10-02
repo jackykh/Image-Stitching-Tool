@@ -337,17 +337,15 @@ function App() {
                 className="hidden"
               />
 
-              {images.length > 0 && (
-                <p className="text-sm text-gray-500 mt-2">
-                  {/* 第一张图片完整显示，其他图片显示底部15%区域
+              <p className="text-sm text-gray-500 mt-2">
+                {/* 第一张图片完整显示，其他图片显示底部15%区域
                   <br /> */}
-                  <span className="text-blue-600">
-                    ✨ 共 {images.length} 张图片
-                  </span>
-                  <br />
-                  纯前端处理，无上传，隐私安全
-                </p>
-              )}
+                <span className="text-blue-600">
+                  ✨ 共 {images.length} 张图片
+                </span>
+                <br />
+                纯前端处理，无上传，隐私安全
+              </p>
             </div>
 
             {images.map((image, index) => (
