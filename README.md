@@ -1,74 +1,114 @@
-# React + TypeScript + Vite
+# 图片拼接工具 / Image Stitching Tool
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+一个基于 React + Fabric.js 的现代化图片拼接工具，支持多张图片垂直拼接，并可添加中日双语字幕，特别适合制作日剧、韩剧风格的截图合集。
 
-Currently, two official plugins are available:
+## ✨ 功能特点
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 📸 **多图片拼接**：支持上传多张图片进行垂直拼接
+- 🔤 **双语字幕**：支持中文和日语字幕添加
+- 🎨 **智能布局**：第一张图片完整显示，其他图片仅显示底部字幕区域（15%）
+- 📱 **响应式设计**：支持桌面端和移动端
+- 🔄 **图片复制**：可复制已有图片，避免重复上传
+- ⬇️ **一键导出**：支持导出高质量 PNG 格式图片
+- 🎯 **实时预览**：所见即所得的预览功能
 
-## React Compiler
+## 🛠 技术栈
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **前端框架**: React 19.1.1
+- **类型系统**: TypeScript
+- **样式框架**: Tailwind CSS 4.1.13
+- **图像处理**: Fabric.js 6.7.1
+- **构建工具**: Vite 7.1.7
 
-## Expanding the ESLint configuration
+## 🚀 快速开始
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 环境要求
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Node.js 22.12+
+- npm 或 yarn
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### 安装依赖
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+# 克隆项目
+git clone <repository-url>
+cd image-stitching-tool
+
+# 安装依赖
+npm install
+# 或
+yarn install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 运行项目
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+# 开发环境
+npm run dev
+# 或
+yarn dev
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# 构建生产版本
+npm run build
+# 或
+yarn build
 ```
-# Image-Stitching-Tool
+
+访问 `http://localhost:5173` 查看应用。
+
+## 📖 使用指南
+
+### 基本操作
+
+1. **上传图片**
+
+   - 点击"点击选择图片"按钮上传一张或多张图片
+   - 支持 JPG、PNG、WebP 等常见图片格式
+   - 第一张图片将完整显示，其余图片仅显示底部区域
+
+2. **添加字幕**
+
+   - 在每张图片下方的输入框中添加中文和日语字幕
+   - 字幕会自动应用样式效果（阴影、描边等）
+
+3. **复制图片**
+
+   - 点击图片右上角的"复制"按钮可复制当前图片
+   - 复制的图片会保留原有字幕，可单独编辑
+
+4. **生成预览**
+
+   - 点击"生成预览"按钮查看拼接效果
+   - 预览图片宽度统一为 800px
+
+5. **导出图片**
+   - 点击"下载拼接图片"导出最终结果
+   - 文件名格式：`拼接图片_时间戳.png`
+
+## 🎨 字幕样式规范
+
+- **中文字幕**
+
+  - 字体：Yuanti, Noto Sans TC
+  - 大小：36px
+  - 颜色：白色主文字 + 深蓝色阴影背景
+  - 位置：图片底部区域
+
+- **日语字幕**
+  - 字体：Noto Sans JP
+  - 大小：20px
+  - 颜色：白色文字 + 黑色描边
+  - 位置：中文字幕下方
+
+## 👨‍💻 作者
+
+**Jacky Cheung**
+
+- 介绍：这是一个用于拼接多张图片及增加日剧、韩剧风格字幕的小工具
+
+## 🙏 致谢
+
+- [Fabric.js](http://fabricjs.com/) - 强大的 Canvas 库
+- [React](https://reactjs.org/) - 用户界面构建库
+- [Tailwind CSS](https://tailwindcss.com/) - 实用优先的 CSS 框架
+- [Vite](https://vitejs.dev/) - 下一代前端构建工具
