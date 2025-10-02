@@ -222,16 +222,14 @@ function App() {
                 fontSize: 36,
                 fontFamily: "Yuanti, Noto Sans TC, sans-serif",
                 fontWeight: "bold",
-                fill: "#003153", // 深蓝色作为背景
+                fill: "#001A35", // 深蓝色作为背景
                 textAlign: "center",
                 originX: "center",
                 selectable: false,
                 opacity: 0.8, // 稍微透明
                 shadow: new fabric.Shadow({
-                  color: "#003153",
-                  blur: 2,
-                  offsetX: -1,
-                  offsetY: -1,
+                  color: "#001A35",
+                  blur: 3,
                 }),
               }
             );
@@ -249,10 +247,8 @@ function App() {
               originX: "center",
               selectable: false,
               shadow: new fabric.Shadow({
-                color: "#003153",
-                blur: 2,
-                offsetX: 2,
-                offsetY: 2,
+                color: "#001A35",
+                blur: 5,
               }),
             });
             fabricCanvas.add(zhText);
