@@ -130,11 +130,8 @@ function App() {
       const firstImageScale = CANVAS_WIDTH / (firstImage.width || 1);
       const firstImageHeight = (firstImage.height || 600) * firstImageScale;
 
-      // 字幕区域固定高度：第一张图片高度的15%，最小80px，最大120px
-      const CAPTION_HEIGHT = Math.min(
-        Math.max(firstImageHeight * 0.15, 80),
-        120
-      );
+      // 字幕区域固定高度：80px
+      const CAPTION_HEIGHT = 80;
 
       // 计算总高度：第一张图片完整高度 + 其他图片的字幕区域高度
       const totalHeight =
