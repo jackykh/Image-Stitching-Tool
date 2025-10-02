@@ -320,7 +320,7 @@ function App() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="space-y-6">
             <div className="bg-white rounded-lg shadow-md p-6">
-              <h2 className="text-xl font-semibold mb-4">上传图片</h2>
+              <h2 className="text-xl font-semibold mb-4">选择图片</h2>
 
               <div className="space-y-3">
                 <button
@@ -342,11 +342,13 @@ function App() {
 
               {images.length > 0 && (
                 <p className="text-sm text-gray-500 mt-2">
-                  第一张图片完整显示，其他图片显示底部15%区域
-                  <br />
+                  {/* 第一张图片完整显示，其他图片显示底部15%区域
+                  <br /> */}
                   <span className="text-blue-600">
-                    ✨ 已上传 {images.length} 张图片
+                    ✨ 共 {images.length} 张图片
                   </span>
+                  <br />
+                  纯前端处理，无上传，隐私安全
                 </p>
               )}
             </div>
